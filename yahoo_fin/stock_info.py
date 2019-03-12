@@ -78,11 +78,10 @@ def get_data(ticker, start_date = None, end_date = None, index_as_date = True):
     result = result.reset_index(drop = True)
     
     if index_as_date:
-        result.index = result.date.copy()
+        
         result = result.sort_values("date")
+        result.index = result.date.copy()
         del result["date"]
-
-    
 
     return result
 
